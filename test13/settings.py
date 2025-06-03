@@ -1,5 +1,8 @@
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # المسار الأساسي للمشروع
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +47,7 @@ ROOT_URLCONF = 'test13.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # يمكنك إضافة مجلد templates لاحقًا
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,6 +96,13 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '417429323829795',
     'API_SECRET': 'c_jU4PDFK18grf4Zq0eo0sXn8H0',
 }
+
+# تهيئة Cloudinary بشكل صريح لتجنب الأخطاء
+cloudinary.config(
+    cloud_name='dodhp4xho',
+    api_key='417429323829795',
+    api_secret='c_jU4PDFK18grf4Zq0eo0sXn8H0'
+)
 
 # نوع معرف القاعدة الافتراضي
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

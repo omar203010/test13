@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField  # ← هذا السطر مهم
 
 class UserSubmission(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="المستخدم")
     title = models.CharField(max_length=100, verbose_name="العنوان")
     description = models.TextField(verbose_name="الوصف")
-    image = models.ImageField(upload_to='uploads/', verbose_name="الصورة")
+    image = CloudinaryField('الصورة')  # ← استخدام CloudinaryField بدلاً من ImageField
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاريخ الإضافة")
 
     def __str__(self):
