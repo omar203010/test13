@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل مستخدم جديد</title>
+</head>
+<body>
+    <h2>تسجيل حساب جديد</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">تسجيل</button>
+    </form>
+    <p>هل لديك حساب؟ <a href="{% url 'login' %}">سجّل الدخول</a></p>
+</body>
+</html>

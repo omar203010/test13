@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>معرض الصور</title>
+</head>
+<body>
+    <h2>معرض الصور</h2>
+    {% for submission in submissions %}
+        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+            <h3>{{ submission.title }}</h3>
+            <p>{{ submission.description }}</p>
+            <img src="{{ submission.image.url }}" width="300" />
+            <p>بواسطة: {{ submission.user.username }} - {{ submission.created_at|date:"Y-m-d H:i" }}</p>
+        </div>
+    {% empty %}
+        <p>لا توجد صور حالياً.</p>
+    {% endfor %}
+    <p><a href="{% url 'submit' %}">رفع صورة جديدة</a> | <a href="{% url 'logout' %}">تسجيل الخروج</a></p>
+</body>
+</html>

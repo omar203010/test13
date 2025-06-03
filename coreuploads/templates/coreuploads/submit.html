@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>رفع صورة</title>
+</head>
+<body>
+    <h2>رفع صورة جديدة</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">رفع</button>
+    </form>
+    <p><a href="{% url 'gallery' %}">العودة للمعرض</a></p>
+</body>
+</html>
